@@ -22,7 +22,7 @@ import java.net.NetworkInterface;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
 public class MyBroadcastReceiver extends BroadcastReceiver {
-
+    //получаем intent и выводим уведомление
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
