@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Задаем условия для запуска задачи
         Constraints internetConstraint = new Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.CONNECTED)
                 .build();
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 .setRequiresCharging(true)
                 .build();
 
-
+        //Создаем список из OneTimeWorkRequest с условиями запуска и Worker
         List<OneTimeWorkRequest> workRequestList= new ArrayList<>();
         workRequestList.add(new OneTimeWorkRequest.Builder(MyWorker.class)
                 .setConstraints(internetConstraint)
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 .setConstraints(deviceIdleConstraint)
                 .setInputData(new Data.Builder().putString("tag","deviceIdle").build())
                 .build());
+        //Запускаем список задач
         WorkManager.getInstance(this).enqueue(workRequestList);
 
 

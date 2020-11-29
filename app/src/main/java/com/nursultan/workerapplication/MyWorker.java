@@ -38,6 +38,7 @@ public class MyWorker extends androidx.work.Worker {
             }
         }
         intentFilter.addAction(action);
+        //Регистрируем приёмник широковещательных сообщений
         getApplicationContext().registerReceiver(myBroadcastReceiver, intentFilter);
         return Result.success();
     }

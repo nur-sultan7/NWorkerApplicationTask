@@ -61,7 +61,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
             int importance = NotificationManager.IMPORTANCE_LOW;
             channel = new NotificationChannel(id, description, importance);
             channel.enableLights(true);
-            channel.enableVibration(true);//
+            channel.enableVibration(true);
             if (manager != null) {
                 manager.createNotificationChannel(channel);
             }
@@ -82,8 +82,8 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
             NotificationCompat.Builder builder =
                     new NotificationCompat.Builder(context, id)
                             .setSmallIcon(R.drawable.notification)
-                            .setContentTitle("Напоминание")
-                            .setContentText("Пора покормить кота")
+                            .setContentTitle(nTitle)
+                            .setContentText(nText)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
             if (manager != null) {
